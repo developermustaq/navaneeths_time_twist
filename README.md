@@ -3,6 +3,9 @@
 
 > A quirky time management app where **1 Navaneeth hour = 48 real-world hours** — because some friends just *never* deliver on time.
 
+🔗 Live Demo
+👉 https://navaneeths-time-twist.vercel.app
+
 ## 💡 Why I Created This
 
 This app is dedicated to my friend **Navaneeth**, a serial task delayer. After countless delays, missed deadlines, and “I’ll do it tomorrow” replies, I decided to gamify his approach to time — by stretching it ridiculously. Thus, **Navaneeth's Time Twist** was born.

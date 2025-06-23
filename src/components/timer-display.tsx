@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 
+const TEMPORAL_HOUR_IN_MS = 48 * 60 * 60 * 1000; // 1 temporal hour = 48 real hours
+
 const padZero = (num: number) => Math.floor(num).toString().padStart(2, '0');
 
 const TimeValue = ({ value }: { value: string }) => (
@@ -25,7 +27,7 @@ export default function TimerDisplay({ expiresAt, isActionDeadline = false }: Ti
   }, [expiresAt]);
 
   const formatTemporalTime = () => {
-    const remainingAppHoursDecimal = remainingTime / 1000;
+    const remainingAppHoursDecimal = remainingTime / TEMPORAL_HOUR_IN_MS;
     const totalAppSeconds = remainingAppHoursDecimal * 3600;
     const h = padZero(totalAppSeconds / 3600);
     const m = padZero((totalAppSeconds % 3600) / 60);

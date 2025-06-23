@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -72,6 +73,9 @@ export default function TaskCreator({ onCreateTask }: TaskCreatorProps) {
                   <FormControl>
                     <Input type="number" step="0.5" placeholder="e.g., 8" {...field} />
                   </FormControl>
+                  <FormDescription>
+                    Note: 1 Temporal Hour = 48 real-world hours.
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}

@@ -6,6 +6,8 @@ import TaskCreator from "@/components/task-creator";
 import ActiveTasksList from "@/components/active-tasks-list";
 import ArchivedTasksList from "@/components/archived-tasks-list";
 
+const TEMPORAL_HOUR_IN_MS = 48 * 60 * 60 * 1000; // 1 temporal hour = 48 real hours
+
 export default function TemporalTwistApp() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
@@ -58,7 +60,7 @@ export default function TemporalTwistApp() {
       id: `task-${now}`,
       name,
       durationInAppHours: hours,
-      expiresAt: now + hours * 1000, // 1 app hour = 1 real second
+      expiresAt: now + hours * TEMPORAL_HOUR_IN_MS,
       status: "active",
     };
     setTasks((prev) => [newTask, ...prev]);

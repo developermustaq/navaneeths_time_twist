@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 
 const NAVANEETH_HOUR_IN_MS = 48 * 60 * 60 * 1000; // 1 Navaneeth Hour = 48 real hours
 
-const padZero = (num: number) => Math.floor(num).toString().padStart(2, '0');
+const pad = (num: number, length = 2) => Math.floor(num).toString().padStart(length, '0');
 
 const TimeValue = ({ value }: { value: string }) => (
-    <span className="inline-block w-[2.5ch] text-center">{value}</span>
+    <span className="inline-block w-[2.2ch] text-center">{value}</span>
 );
 
 type TimerDisplayProps = {
@@ -28,16 +28,18 @@ export default function TimerDisplay({ expiresAt, isActionDeadline = false }: Ti
 
   const formatNavaneethTime = () => {
     const remainingAppHoursDecimal = remainingTime / NAVANEETH_HOUR_IN_MS;
-    const totalAppSeconds = remainingAppHoursDecimal * 3600;
-    const h = padZero(totalAppSeconds / 3600);
-    const m = padZero((totalAppSeconds % 3600) / 60);
-    const s = padZero(totalAppSeconds % 60);
-    return { h, m, s };
+    const totalAppSecondsDecimal = remainingAppHoursDecimal * 3600;
+    
+    const h = pad(totalAppSecondsDecimal / 3600);
+    const m = pad((totalAppSecondsDecimal % 3600) / 60);
+    const s = pad(totalAppSecondsDecimal % 60);
+    const ms = pad((totalAppSecondsDecimal * 1000) % 1000, 3);
+    return { h, m, s, ms };
   };
 
   const formatRealTime = () => {
-    const m = padZero(remainingTime / (1000 * 60));
-    const s = padZero((remainingTime % (1000 * 60)) / 1000);
+    const m = pad(remainingTime / (1000 * 60));
+    const s = pad((remainingTime % (1000 * 60)) / 1000);
     return { m, s };
   };
 
@@ -50,15 +52,17 @@ export default function TimerDisplay({ expiresAt, isActionDeadline = false }: Ti
     );
   }
 
-  const { h, m, s } = formatNavaneethTime();
+  const { h, m, s, ms } = formatNavaneethTime();
 
   return (
-    <div className="font-mono font-bold text-4xl md:text-5xl text-primary tracking-tighter flex justify-center items-center bg-accent/50 rounded-lg p-4">
+    <div className="font-mono font-bold text-4xl md:text-5xl text-primary tracking-tighter flex justify-center items-baseline bg-accent/50 rounded-lg p-4">
       <TimeValue value={h} />
       <span>:</span>
       <TimeValue value={m} />
       <span>:</span>
       <TimeValue value={s} />
+      <span className="text-2xl md:text-3xl text-muted-foreground">.</span>
+      <span className="text-2xl md:text-3xl text-muted-foreground w-[3.3ch] text-left">{ms}</span>
     </div>
   );
 }

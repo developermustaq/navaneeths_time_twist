@@ -69,12 +69,12 @@ export default function TaskCreator({ onCreateTask }: TaskCreatorProps) {
               name="hours"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Duration (in Temporal Hours)</FormLabel>
+                  <FormLabel>Duration (in Navaneeth Hours)</FormLabel>
                   <FormControl>
                     <Input type="number" step="0.5" placeholder="e.g., 8" {...field} />
                   </FormControl>
                   <FormDescription>
-                    Note: 1 Temporal Hour = 48 real-world hours.
+                    Note: 1 Navaneeth Hour = 48 real-world hours.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

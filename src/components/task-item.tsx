@@ -24,7 +24,7 @@ export default function TaskItem({ task, onUpdateStatus }: TaskItemProps) {
       <CardHeader>
         <CardTitle className="font-body font-semibold">{task.name}</CardTitle>
         <CardDescription>
-          Original Duration: {task.durationInAppHours} temporal hour(s)
+          Original Duration: {task.durationInAppHours} Navaneeth hour(s)
         </CardDescription>
       </CardHeader>
       <CardContent>

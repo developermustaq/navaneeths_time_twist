@@ -6,7 +6,7 @@ export default function Home() {
       <div className="w-full max-w-3xl space-y-8">
         <header className="text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-primary tracking-tighter animate-in fade-in duration-700">
-            Navaneeth's Temporal Twist
+            Navaneeth's Time Twist
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-muted-foreground font-body animate-in fade-in-50 duration-700 delay-200">
             Here, time runs differently.

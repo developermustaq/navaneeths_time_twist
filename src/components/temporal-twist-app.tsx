@@ -6,20 +6,20 @@ import TaskCreator from "@/components/task-creator";
 import ActiveTasksList from "@/components/active-tasks-list";
 import ArchivedTasksList from "@/components/archived-tasks-list";
 
-const TEMPORAL_HOUR_IN_MS = 48 * 60 * 60 * 1000; // 1 temporal hour = 48 real hours
+const NAVANEETH_HOUR_IN_MS = 48 * 60 * 60 * 1000; // 1 Navaneeth Hour = 48 real hours
 
 export default function TemporalTwistApp() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
-    const savedTasks = localStorage.getItem("temporalTwistTasks");
+    const savedTasks = localStorage.getItem("navaneethTwistTasks");
     if (savedTasks) {
       setTasks(JSON.parse(savedTasks));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("temporalTwistTasks", JSON.stringify(tasks));
+    localStorage.setItem("navaneethTwistTasks", JSON.stringify(tasks));
   }, [tasks]);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function TemporalTwistApp() {
       id: `task-${now}`,
       name,
       durationInAppHours: hours,
-      expiresAt: now + hours * TEMPORAL_HOUR_IN_MS,
+      expiresAt: now + hours * NAVANEETH_HOUR_IN_MS,
       status: "active",
     };
     setTasks((prev) => [newTask, ...prev]);

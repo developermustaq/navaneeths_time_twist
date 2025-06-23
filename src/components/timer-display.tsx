@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const TEMPORAL_HOUR_IN_MS = 48 * 60 * 60 * 1000; // 1 temporal hour = 48 real hours
+const NAVANEETH_HOUR_IN_MS = 48 * 60 * 60 * 1000; // 1 Navaneeth Hour = 48 real hours
 
 const padZero = (num: number) => Math.floor(num).toString().padStart(2, '0');
 
@@ -26,8 +26,8 @@ export default function TimerDisplay({ expiresAt, isActionDeadline = false }: Ti
     return () => clearInterval(interval);
   }, [expiresAt]);
 
-  const formatTemporalTime = () => {
-    const remainingAppHoursDecimal = remainingTime / TEMPORAL_HOUR_IN_MS;
+  const formatNavaneethTime = () => {
+    const remainingAppHoursDecimal = remainingTime / NAVANEETH_HOUR_IN_MS;
     const totalAppSeconds = remainingAppHoursDecimal * 3600;
     const h = padZero(totalAppSeconds / 3600);
     const m = padZero((totalAppSeconds % 3600) / 60);
@@ -50,7 +50,7 @@ export default function TimerDisplay({ expiresAt, isActionDeadline = false }: Ti
     );
   }
 
-  const { h, m, s } = formatTemporalTime();
+  const { h, m, s } = formatNavaneethTime();
 
   return (
     <div className="font-mono font-bold text-4xl md:text-5xl text-primary tracking-tighter flex justify-center items-center bg-accent/50 rounded-lg p-4">

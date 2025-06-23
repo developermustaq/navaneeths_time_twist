@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Navaneeth\'s Temporal Twist',
+  title: "Navaneeth's Time Twist",
   description: 'Here, time runs differently.',
 };
 
